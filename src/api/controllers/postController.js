@@ -22,7 +22,7 @@ exports.list_all_post = (req, res) => {
   .catch(error => {
     res.status(500);
     console.log(error);
-    res.json({message: "Erreur serveur."})
+    res.json({message: "Erreur serveur"})
   })
 }
 
@@ -35,11 +35,11 @@ exports.create_a_post = (req, res) => {
       if(error){
         resData.status(500);
         console.log(error);
-        resData.json({message: "Erreur serveur."})
+        resData.json({message: "Erreur serveur"})
       }
       else{
         resData.status(201);
-        resData.json(post);
+        resData.json({message: "Article crée"});
       }
     })
   }

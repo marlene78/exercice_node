@@ -5,9 +5,10 @@ exports.verify_token = (req, res, next) => {
 
   if(typeof token !== 'undefined'){
     jwt.verify(token, process.env.JWT_KEY, (error, authData) => {
+     
       if(error){
         res.status(401);
-        res.json({message: "Accès interdit"})
+        res.json({message: "Accès interdit"});
       }
       else{
         next();
@@ -19,3 +20,4 @@ exports.verify_token = (req, res, next) => {
     res.json({message: "Accès interdit"})
   }
 }
+

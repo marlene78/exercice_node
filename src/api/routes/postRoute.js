@@ -3,7 +3,7 @@ module.exports = (server) => {
   const jwtMiddleware = require('../middleware/jwtMiddleware');
 
   server.route('/posts')
-  .get(postController.list_all_post)
+  .get(jwtMiddleware.verify_token , postController.list_all_post)
   .post(jwtMiddleware.verify_token, postController.create_a_post);
 
  server.route('/posts/:post_id') // req.params.post_id
